@@ -76,7 +76,7 @@ function App() {
     setFormData({ ...formData, [name]: value });
   };
 
-  const insertStation = async (newStation) => {
+  const upsertStation = async (newStation) => {
     const response = await fetch(endpoint, {
       method: "POST",
       body: JSON.stringify(newStation),
@@ -95,42 +95,45 @@ function App() {
 
   const addItem = async (e) => {
     e.preventDefault();
-    // debugger
-    console.log("add");
     try {
-      const newStation = await insertStation({ ...formData });
+      const newStation = await upsertStation({ ...formData });
       setItems([...items, newStation]);
       setFormData(generateEmpty());
       console.log(newStation);
     } catch (exc) {
       console.error(exc);
     }
-    // setItems([...items, newStation]);
-    // setFormData(generateEmpty());
   };
 
   const editItem = (item) => {
-    setEditing(true);
-    setFormData(item);
+      setEditing(true);
+      setFormData(item);
   };
 
-  const updateItem = (e) => {
+  const updateItem = async (e) => {
     e.preventDefault();
-    setItems(items.map((item) => (item.id === formData.id ? formData : item)));
-    setEditing(false);
-    setFormData(generateEmpty());
+    try {
+      await upsertStation(formData);
+      setItems(items.map((item) => (item.id === formData.id ? formData : item)));
+      setEditing(false);
+      setFormData(generateEmpty());
+
+    }
+    catch(exc){
+      console.log(exc);
+    }
   };
 
-  const deleteServer = async(id) => {
+  const deleteServer = async (id) => {
     const response = await fetch(`${endpoint}/${id}`, {
       method: "DELETE",
     });
     return response;
-  }
+  };
 
   const deleteItem = async (id) => {
     const response = await deleteServer(id);
-    if(!response.ok){
+    if (!response.ok) {
       return;
     }
     setItems(items.filter((item) => item.id !== id));
@@ -210,14 +213,14 @@ function App() {
 
         <div className="input-container">
           <label className="input-label asterix">*</label>
-        <input
-          type="number"
-          name="price"
-          placeholder="Diesel price"
-          value={formData.price}
-          onChange={handleInputChange}
-          required
-        />
+          <input
+            type="number"
+            name="price"
+            placeholder="Diesel price"
+            value={formData.price}
+            onChange={handleInputChange}
+            required
+          />
         </div>
 
         <div className="input-container">
@@ -228,7 +231,11 @@ function App() {
           <input
             type="date"
             name="rateDate"
-            value={formData.rateDate ? formatDate(formData.rateDate) : getCurrentDate()}
+            value={
+              formData.rateDate
+                ? formatDate(formData.rateDate)
+                : getCurrentDate()
+            }
             onChange={handleInputChange}
           />
         </div>
