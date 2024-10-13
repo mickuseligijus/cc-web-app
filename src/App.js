@@ -228,7 +228,7 @@ function App() {
           <input
             type="date"
             name="rateDate"
-            value={formData.rateDate ? formData.rateDate : getCurrentDate()}
+            value={formData.rateDate ? formatDate(formData.rateDate) : getCurrentDate()}
             onChange={handleInputChange}
           />
         </div>
