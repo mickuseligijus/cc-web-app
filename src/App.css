@@ -1,38 +1,117 @@
+/* General page styling */
 .App {
   text-align: center;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background-color: #f4f4f4;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Form styling */
+form {
+  margin-bottom: 20px;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  flex-wrap: wrap;
+  gap: 20px; /* Adds space between inputs */
+}
+
+/* Input styling */
+form input, form select {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 200px; /* Fixed width for uniformity */
+  transition: border-color 0.3s; /* Smooth transition for focus */
+  height: 2.75rem;
+}
+
+/* Focus effect */
+form input:focus, form select:focus {
+  border-color: #28a745; /* Change border color on focus */
+  outline: none; /* Remove default outline */
+}
+
+/* Button styling */
+form button {
+  margin: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #28a745;
   color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
 }
 
-.App-link {
-  color: #61dafb;
+form button:hover {
+  background-color: #218838; /* Darker green on hover */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.input-label{
+  position: absolute;
+  top: -15px;
+  font-size: 12px;
+}
+
+/* Checkbox container styling */
+.input-container {
+  position: relative;
+  display: flex;
+  flex-direction: column; /* Stack label and checkbox vertically */
+  align-items: flex-start; /* Align items to the start */
+  font-size: 16px; /* Consistent font size */
+}
+
+/* Checkbox input styling */
+input[type="checkbox"] {
+  /* margin-top: 20; */
+  margin-top: 1rem;
+  width: 100px;
+  height: 2rem;
+}
+
+/* Multi-select styling */
+select {
+  cursor: pointer; /* Change cursor to pointer */
+  width: 150px;
+}
+
+/* Styles for number inputs to hide the spinner */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield; /* Hides spinner in Firefox */
+}
+
+/* General styles for error messages */
+.error {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.paymentMethods{
+  height: 4.25rem;
+}
+
+.label-container{
+  position: absolute;
+  top: -15px;
+  display: flex;
+  flex-direction: row;
+}
+
+.font-size-12{
+
+  font-size: 12px;
+}
+
+.asterix{
+  color:red;
 }
