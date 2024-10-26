@@ -17,9 +17,12 @@ jobs:
     steps:
       - name: List root directory files (initial)
         run: ls -al /
+        
+      - name: List files in `/github/workspace`
+        run: ls -al /github/workspace
 
-      - name: List root directory files (initial)
-        run: ls -al /src
+      - name: List files in `/github/workspace/src`
+        run: ls -al /github/workspace/src
         
       - uses: actions/checkout@v3
         with:
