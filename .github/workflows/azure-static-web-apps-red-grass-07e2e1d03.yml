@@ -17,6 +17,9 @@ jobs:
     steps:
       - name: List root directory files (initial)
         run: ls -al /
+
+      - name: List root directory files (initial)
+        run: ls -al /public
         
       - name: List files in `/github/workspace`
         run: ls -al /github/workspace
