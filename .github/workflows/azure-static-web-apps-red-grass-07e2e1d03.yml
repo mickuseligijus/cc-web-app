@@ -15,6 +15,12 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     steps:
+      - name: List root directory files (initial)
+        run: ls -al /
+
+      - name: List root directory files (initial)
+        run: ls -al /src
+        
       - uses: actions/checkout@v3
         with:
           submodules: true
