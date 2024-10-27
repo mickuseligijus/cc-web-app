@@ -11,8 +11,8 @@ const emptyItem = {
   openHours: "",
   price: "",
   rateDate: getCurrentDate(),
-  parking: false,
-  paymentMethods: ["Cash"],
+  parking: false
+  // paymentMethods: ["Cash"],
 };
 
 function generateEmpty() {
@@ -86,6 +86,9 @@ function App() {
     });
 
     if (!response.ok) {
+      console.log(response)
+      const errorDetails = await response.json();
+      console.log(errorDetails)
       throw new Error("Network response was not ok");
     }
 
@@ -240,7 +243,7 @@ function App() {
           />
         </div>
 
-        <div className="input-container">
+        {/* <div className="input-container">
           <div className="label-container">
             <div className="asterix">*&nbsp;</div>
             <div className="font-size-12">Payment Methods</div>
@@ -256,7 +259,7 @@ function App() {
             <option value="Cash">Cash</option>
             <option value="Credit Card">Credit Card</option>
           </select>
-        </div>
+        </div> */}
 
         <div className="input-container">
           <label className="input-label">24/7 Parking</label>
