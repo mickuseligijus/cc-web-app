@@ -100,7 +100,9 @@ function App() {
     }
 
     const item = await response.json();
-    return item;
+    
+    return {...item, rateDate: item.rate_date,
+      openHours: item.open_hours};
   };
 
   const addItem = async (e) => {
