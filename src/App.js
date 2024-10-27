@@ -57,7 +57,14 @@ function App() {
         throw new Error("Network response was not ok");
       }
       const fuelStations = await response.json();
-      setItems(fuelStations);
+
+      setItems(fuelStations.map(station => {
+        return {
+          ...station,
+          rateDate: station.rate_date,
+          openHours: station.open_hours
+        }
+      }));
       console.log(fuelStations);
     } catch (error) {
       console.error("There was a problem with the fetch operation:", error);

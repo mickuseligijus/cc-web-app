@@ -12,7 +12,7 @@ const TableComponent = ({ items, onEdit, onDelete }) => {
           <th>Open Hours</th>
           <th>Diesel Price</th>
           <th>Rate Date</th>
-          <th>Payment Methods</th>
+          {/* <th>Payment Methods</th> */}
           <th>24/7 Parking</th>
           <th>Actions</th>
         </tr>
@@ -26,13 +26,13 @@ const TableComponent = ({ items, onEdit, onDelete }) => {
             <td>{item.openHours}</td>
             <td>{item.price}</td>
             <td>{formatDate(item.rateDate)}</td>
-            <td>
+            {/* <td>
               <ul>
                 {item.paymentMethods?.map((payment) => {
                   return <li>{payment}</li>;
                 })}
               </ul>
-            </td>
+            </td> */}
             <td>{item.parking ? "Yes" : "No"}</td>
             <td className="actions">
               <button onClick={() => onEdit(item)}>Edit</button>
