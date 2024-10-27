@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import TableComponent from "./TableComponent";
 
-const endpoint = "https://cc-web-api-latest.onrender.com/fuelStation";
+const endpoint = "https://cc-web-api-v11.azurewebsites.net/fuelStation";
 
 const emptyItem = {
   name: "",
