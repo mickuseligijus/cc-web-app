@@ -149,21 +149,21 @@ function App() {
     setItems(items.filter((item) => item.id !== id));
   };
 
-  const handleSelectChange = (e) => {
-    const options = e.target.options;
-    const valueArray = [];
+  // const handleSelectChange = (e) => {
+  //   const options = e.target.options;
+  //   const valueArray = [];
 
-    // Loop through selected options and add them to valueArray
-    for (let i = 0; i < options.length; i++) {
-      if (options[i].selected) {
-        valueArray.push(options[i].value);
-      }
-    }
+  //   // Loop through selected options and add them to valueArray
+  //   for (let i = 0; i < options.length; i++) {
+  //     if (options[i].selected) {
+  //       valueArray.push(options[i].value);
+  //     }
+  //   }
 
-    // Update the state with the selected languages
-    setFormData({ ...formData, paymentMethods: valueArray });
-    console.log("selection changed");
-  };
+  //   // Update the state with the selected languages
+  //   setFormData({ ...formData, paymentMethods: valueArray });
+  //   console.log("selection changed");
+  // };
 
   const handleCheckboxChange = (e) => {
     const { name } = e.target;
