@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import TableComponent from "./TableComponent";
-var os = require('os');
+// var os = require('os');
 
 const endpoint = "https://cc-web-api-v11.azurewebsites.net/fuelStation";
 
@@ -56,7 +56,7 @@ function App() {
     try {
       const response = await fetch(endpoint);
       console.log(response);
-      console.log(os.release());
+      // console.log(os.release());
 
       if (!response.ok) {
         throw new Error("Network response was not ok");
