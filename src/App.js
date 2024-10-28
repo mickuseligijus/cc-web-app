@@ -43,6 +43,9 @@ export function formatDate(date) {
 }
 
 function App() {
+
+  const environment = process.env.REACT_APP_RENDER_ENV
+  console.log(environment);
   const [items, setItems] = useState([]);
   const [formData, setFormData] = useState(generateEmpty());
   const [editing, setEditing] = useState(false);
